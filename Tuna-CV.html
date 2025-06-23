@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CV của Tứng</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Orbitron:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="cv_style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loader"></div>
+    </div>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrixRain"></div>
+    <!-- Geometric Background -->
+    <div class="geometric-bg">
+      <div class="geometric-shape"></div>
+      <div class="geometric-shape"></div>
+      <div class="geometric-shape"></div>
+      <div class="geometric-shape"></div>
+    </div>
+    <div class="container">
+      <div class="particles" id="particles"></div>
+      <div class="header">
+        <div class="profile-section">
+          <div class="profile-img">
+            <img
+              src="/anh-2.jpg"
+              alt="Ảnh đại diện Nguyễn Ngọc Tuấn"
+              class="avatar-img"
+            />
+          </div>
+
+          <h1
+            class="glitch holographic"
+            data-text="Nguyễn Ngọc Tuấn"
+            id="name-text"
+          >
+            Nguyễn Ngọc Tuấn
+          </h1>
+          <p class="subtitle neon-glow" id="subtitle-text">🫶❤️🫶</p>
+          <div class="social-links">
+            <a
+              class="social-link facebook"
+              href="https://www.facebook.com/berharm.alexxandre"
+              target="_blank"
+              title="Facebook"
+              ><img
+                alt="Facebook"
+                class="contact-icon"
+                src="facebook-svgrepo-com.svg" /></a
+            ><a
+              class="social-link instagram"
+              href="https://www.instagram.com/nntuan2412/"
+              target="_blank"
+              title="Instagram"
+              ><img
+                alt="Instagram"
+                class="contact-icon"
+                src="insta-svgrepo-com.svg" /></a
+            ><a
+              class="social-link zalo"
+              href="https://zalo.me/0915990195"
+              target="_blank"
+              title="Zalo"
+              ><img
+                alt="Zalo"
+                class="contact-icon"
+                src="zalo-svgrepo-com.svg" /></a
+            ><a
+              class="social-link github"
+              href="https://github.com/Tunaleo"
+              target="_blank"
+              title="GitHub"
+              ><img
+                alt="GitHub"
+                class="contact-icon"
+                src="github-svgrepo-com.svg"
+            /></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" onclick="showTab('about')">
+          <i class="fas fa-user"></i>Giới thiệu
+        </button>
+        <button class="nav-tab" onclick="showTab('experience')">
+          <i class="fas fa-briefcase"></i>Kinh nghiệm
+        </button>
+        <button class="nav-tab" onclick="showTab('skills')">
+          <i class="fas fa-code"></i>Kỹ năng
+        </button>
+        <button class="nav-tab" onclick="showTab('education')">
+          <i class="fas fa-graduation-cap"></i>Học vấn
+        </button>
+        <button class="nav-tab" onclick="showTab('projects')">
+          <i class="fas fa-project-diagram"></i>Dự án
+        </button>
+        <button class="nav-tab" onclick="showTab('contact')">
+          <i class="fas fa-envelope"></i>Liên hệ
+        </button>
+      </div>
+      <div class="content">
+        <div class="tab-content active" id="about">
+          <h2 class="section-title holographic">Thông tin cá nhân</h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <strong><i class="fas fa-user"></i> Họ và tên</strong>
+              <span>Nguyễn Ngọc Tuấn</span>
+            </div>
+            <div class="info-item">
+              <strong><i class="fas fa-briefcase"></i> Vị trí mong muốn</strong>
+              <span>Lập trình Full-Stack</span>
+            </div>
+            <div class="info-item">
+              <strong><i class="fas fa-phone"></i> Điện thoại</strong>
+              <span>+84 915990195</span>
+            </div>
+            <div class="info-item">
+              <strong><i class="fas fa-envelope"></i> Email</strong>
+              <span>tuanlxl123@gmail.com</span>
+            </div>
+            <div class="info-item">
+              <strong><i class="fas fa-map-marker-alt"></i> Địa chỉ</strong>
+              <span>Hồ Chí Minh, Việt Nam</span>
+            </div>
+            <div class="info-item">
+              <strong><i class="fas fa-calendar"></i> Tuổi</strong>
+              <span>20 tuổi</span>
+            </div>
+          </div>
+          <h3
+            class="holographic"
+            style="
+              color: var(--text-primary);
+              margin-bottom: 30px;
+              font-size: 1.8rem;
+              font-weight: 800;
+              font-family: 'Orbitron', monospace;
+            "
+          >
+            Tóm tắt bản thân
+          </h3>
+          <div class="summary-text">
+            Sinh viên năm 2 ngành Công nghệ Thông tin tại Đại học UTH, yêu thích
+            phát triển web và khám phá các công nghệ mới. Có kinh nghiệm thực
+            hành với HTML, CSS, JavaScript và Python thông qua các dự án cá nhân
+            và bài tập lớn. Đang trau dồi kỹ năng lập trình, làm việc nhóm và tư
+            duy giải quyết vấn đề. Mong muốn được học hỏi trong môi trường thực
+            tế và đóng góp vào các sản phẩm công nghệ sáng tạo.
+          </div>
+        </div>
+        <div class="tab-content" id="experience">
+          <h2 class="section-title holographic">Kinh nghiệm</h2>
+
+          <div class="experience-item">
+            <div class="experience-title">
+              Thực hiện dự án cá nhân: Website CV cá nhân
+            </div>
+            <div class="experience-company">Tự học và thực hành</div>
+            <div class="experience-date">03/2024 – Nay</div>
+            <ul>
+              <li>
+                Thiết kế và lập trình giao diện CV cá nhân với HTML, CSS và
+                JavaScript
+              </li>
+              <li>
+                Áp dụng hiệu ứng hoạt ảnh, hiệu ứng chuyển tab và responsive
+                design
+              </li>
+              <li>
+                Triển khai website lên GitHub Pages để chia sẻ với nhà tuyển
+                dụng
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <div class="experience-title">
+              Thiết kế tool chống click ảo cho quảng cáo Google
+            </div>
+            <div class="experience-company">
+              Dự án cá nhân - Python Automation
+            </div>
+            <div class="experience-date">03/2024 – 06/2024</div>
+            <ul>
+              <li>
+                Phát triển tool tự động phát hiện IP bất thường truy cập vào
+                quảng cáo Google
+              </li>
+              <li>
+                Sử dụng Python, Google Sheet API và Task Scheduler để ghi log và
+                gửi cảnh báo qua email
+              </li>
+              <li>
+                Thiết kế giao diện web đơn giản giúp người dùng theo dõi hoạt
+                động click dễ dàng trên điện thoại
+              </li>
+              <li>
+                Hiểu sâu hơn về việc bảo mật quảng cáo và hiệu quả chi tiêu ngân
+                sách marketing
+              </li>
+            </ul>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-title">
+              Thành viên CLB Tiếng Anh Chất lượng cao
+            </div>
+            <div class="experience-company">Trường Đại học UTH</div>
+            <div class="experience-date">09/2023 – Nay</div>
+            <ul>
+              <li>
+                Tham gia các buổi thuyết trình, debate và workshop rèn luyện kỹ
+                năng giao tiếp tiếng Anh
+              </li>
+              <li>
+                Phát triển khả năng sử dụng tiếng Anh học thuật, viết luận,
+                thuyết trình dự án kỹ thuật
+              </li>
+              <li>Hỗ trợ biên tập nội dung song ngữ cho bản tin sinh viên</li>
+              <li>
+                Tự tin giao tiếp tiếng Anh trong môi trường học thuật và hợp tác
+                nhóm đa ngôn ngữ
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tab-content" id="skills">
+          <h2 class="section-title holographic">Kỹ năng</h2>
+          <div class="skills-container">
+            <div class="skill-category">
+              <h3><i class="fas fa-code"></i> Ngôn ngữ lập trình</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>Python</span>
+                    <span>80%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>C++</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 70%"></div>
+                  </div>
+                </div>
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>JavaScript</span>
+                    <span>60%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">Bootstrap</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>HTML5</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>CSS3</span>
+                    <span>75%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3><i class="fas fa-database"></i> Cơ sở dữ liệu</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">SQLite</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>MySQL</span>
+                    <span>65%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 65%"></div>
+                  </div>
+                </div>
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>SQLite</span>
+                    <span>60%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3><i class="fas fa-tools"></i> Công cụ học tập</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">VS Code</span>
+                <span class="skill-tag">GitHub</span>
+                <span class="skill-tag">Google Colab</span>
+                <span class="skill-tag">Figma</span>
+              </div>
+              <div class="skill-progress">
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>VS Code</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 85%"></div>
+                  </div>
+                </div>
+                <div class="skill-progress-item">
+                  <div class="skill-progress-label">
+                    <span>GitHub</span>
+                    <span>70%</span>
+                  </div>
+                  <div class="skill-progress-bar">
+                    <div class="skill-progress-fill" style="width: 70%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3><i class="fas fa-users"></i> Kỹ năng mềm</h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Làm việc nhóm</span>
+                <span class="skill-tag">Giao tiếp</span>
+                <span class="skill-tag">Tự học</span>
+                <span class="skill-tag">Thuyết trình</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="education">
+          <h2 class="section-title holographic">Học vấn</h2>
+
+          <div class="education-item">
+            <h3>Cử nhân Công nghệ Thông tin</h3>
+            <div class="school">Đại học Công nghệ TP.HCM (UTH)</div>
+            <div class="date">
+              2022 - 2026 (Dự kiến) | TP. Hồ Chí Minh, Việt Nam
+            </div>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin-top: 20px;
+              "
+            >
+              <strong>GPA hiện tại:</strong> 3.3/4.0<br />
+              <strong>Hoạt động:</strong> Thành viên CLB Công nghệ, tham gia
+              workshop về Web và Python<br />
+              <strong>Dự án học tập:</strong> Xây dựng website CV cá nhân, hệ
+              thống quản lý sinh viên (PHP, MySQL)<br />
+              <strong>Môn học nổi bật:</strong> Lập trình Web, Cơ sở dữ liệu,
+              Nhập môn AI, Cấu trúc dữ liệu và Giải thuật
+            </p>
+          </div>
+
+          <h3
+            class="holographic"
+            style="
+              color: var(--text-primary);
+              margin: 50px 0 30px 0;
+              font-size: 1.8rem;
+              font-weight: 800;
+              font-family: 'Orbitron', monospace;
+            "
+          >
+            Chứng chỉ &amp; Khóa học
+          </h3>
+
+          <div class="education-item">
+            <h4
+              style="
+                color: var(--text-primary);
+                margin-bottom: 12px;
+                font-size: 1.3rem;
+              "
+            >
+              Lập trình Python cơ bản
+            </h4>
+            <div class="school">Coursera - University of Michigan</div>
+            <div class="date">2023 | Đã hoàn thành</div>
+            <p style="color: var(--text-muted); margin-top: 15px">
+              Khóa học nền tảng giúp nắm vững cú pháp và ứng dụng cơ bản của
+              Python trong xử lý dữ liệu và lập trình web.
+            </p>
+          </div>
+
+          <div class="education-item">
+            <h4
+              style="
+                color: var(--text-primary);
+                margin-bottom: 12px;
+                font-size: 1.3rem;
+              "
+            >
+              Giới thiệu về HTML, CSS và JavaScript
+            </h4>
+            <div class="school">freeCodeCamp</div>
+            <div class="date">2023 | Đã hoàn thành</div>
+            <p style="color: var(--text-muted); margin-top: 15px">
+              Thực hành xây dựng giao diện web cơ bản và học cách tạo hiệu ứng
+              tương tác đơn giản bằng JavaScript.
+            </p>
+          </div>
+
+          <div class="education-item">
+            <h4
+              style="
+                color: var(--text-primary);
+                margin-bottom: 12px;
+                font-size: 1.3rem;
+              "
+            >
+              Lập trình Web với Flask
+            </h4>
+            <div class="school">Udemy</div>
+            <div class="date">2024 | Đang học</div>
+            <p style="color: var(--text-muted); margin-top: 15px">
+              Tìm hiểu cách xây dựng ứng dụng web backend bằng Python Flask, kết
+              nối với cơ sở dữ liệu và triển khai ứng dụng.
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-content" id="projects">
+          <h2 class="section-title holographic">Dự án cá nhân</h2>
+
+          <div class="project-item">
+            <h3>Website CV cá nhân</h3>
+            <div class="project-link">
+              <i class="fab fa-github"></i>
+              github.com/nguyentuanuth/portfolio-cv
+            </div>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 20px 0;
+              "
+            >
+              Thiết kế và lập trình website giới thiệu bản thân sử dụng HTML,
+              CSS và JavaScript. Giao diện tương tác với hiệu ứng chuyển tab,
+              hiệu ứng gõ chữ và hỗ trợ responsive trên điện thoại. Triển khai
+              trên GitHub Pages.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">GitHub Pages</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <h3>Ứng dụng quản lý công việc nhóm (Bài tập lớn)</h3>
+            <div class="project-link">
+              <i class="fas fa-external-link-alt"></i>
+              uth-task-app.vercel.app
+            </div>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 20px 0;
+              "
+            >
+              Thực hiện trong môn Lập trình Web, ứng dụng cho phép tạo task, gán
+              deadline, đánh dấu hoàn thành và lọc theo trạng thái. Sử dụng
+              Bootstrap cho giao diện và lưu trữ dữ liệu bằng localStorage.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">localStorage</span>
+              <span class="skill-tag">Responsive Web</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <h3>Mini game: Đoán số may mắn</h3>
+            <div class="project-link">
+              <i class="fab fa-github"></i>
+              github.com/nguyentuanuth/guess-number-game
+            </div>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 20px 0;
+              "
+            >
+              Một trò chơi nhỏ luyện kỹ năng JavaScript: người dùng nhập số để
+              đoán, hệ thống phản hồi lớn hơn / nhỏ hơn / đúng. Thiết kế đơn
+              giản, thân thiện, phục vụ học logic lập trình cơ bản.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">UI đơn giản</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <h3>Dự án nhóm: Website bán sách (demo)</h3>
+            <div class="project-link">
+              <i class="fab fa-github"></i>
+              github.com/nguyentuanuth/bookstore-demo
+            </div>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 20px 0;
+              "
+            >
+              Dự án mô phỏng hệ thống bán sách trực tuyến với trang chủ, giỏ
+              hàng và thanh toán đơn giản. Giao diện chia module, dùng PHP và
+              MySQL để lưu sản phẩm và đơn hàng. Là bài tập lớn cuối kỳ năm
+              nhất.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">Mô hình MVC đơn giản</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="contact">
+          <h2 class="section-title">Liên hệ</h2>
+          <div class="contact-info">
+            <a
+              class="contact-item"
+              href="mailto:tuanlxl123@gmail.com"
+              target="_blank"
+            >
+              <img
+                class="contact-icon"
+                src="mail-svgrepo-com.svg"
+                alt="Email"
+              />
+              <div class="contact-label">Email</div>
+              <div class="contact-value">tuanlxl123@gmail.com</div>
+            </a>
+
+            <a
+              class="contact-item"
+              href="https://www.facebook.com/berharm.alexxandre"
+              target="_blank"
+            >
+              <img
+                class="contact-icon"
+                src="facebook-svgrepo-com.svg"
+                alt="Facebook"
+              />
+              <div class="contact-label">Facebook</div>
+              <div class="contact-value">Tuấn Nguyễn</div>
+            </a>
+
+            <a class="contact-item" href="tel:0915990195" target="_blank">
+              <img
+                class="contact-icon"
+                src="phone-call-svgrepo-com.svg"
+                alt="Phone"
+              />
+              <div class="contact-label">Điện thoại</div>
+              <div class="contact-value">0915990195</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Floating Action Button -->
+    <a class="fab" href="#" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+    <script src="cv_script.js"></script>
+  </body>
+</html>
