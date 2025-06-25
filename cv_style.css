@@ -1459,3 +1459,14 @@ body {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 25px 50px rgba(59, 130, 246, 0.5);
 }
+.language-switcher select {
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  border: 2px solid var(--accent-primary);
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.language-switcher select:hover {
+  background: var(--bg-card);
+}
