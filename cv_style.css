@@ -423,6 +423,31 @@ body {
   animation: profileSpin 3s linear infinite;
   z-index: -1;
 }
+@media (max-width: 768px) {
+  .nav-tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 1000;
+    background: var(--bg-primary);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .nav-tab {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+  }
+
+  .content {
+    padding-top: 80px !important; /* để tránh bị tab che */
+  }
+}
 
 @keyframes profileSpin {
   0% {
@@ -746,7 +771,71 @@ body {
   transform: scale(1.2) rotate(10deg);
 }
 
+/* Liquid Morphing Content */
+.content {
+  padding: 80px 40px;
+  min-height: 600px;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
 
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(59, 130, 246, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(139, 92, 246, 0.05) 0%,
+      transparent 50%
+    );
+  animation: contentPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes contentPulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.tab-content {
+  display: none;
+  animation: liquidMorph 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes liquidMorph {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+    filter: blur(10px);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
 
 /* Holographic Section Titles */
 .section-title {
