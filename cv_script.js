@@ -703,3 +703,8 @@ const translations = {
     contact_phone_value: "0915990195",
   },
 };
+// Toggle menu cho mobile
+function toggleMobileMenu() {
+  const menu = document.getElementById("mobileMenu");
+  menu.classList.toggle("open");
+}
