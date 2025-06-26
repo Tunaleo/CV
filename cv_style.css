@@ -745,145 +745,91 @@ body {
 .nav-tab:hover i {
   transform: scale(1.2) rotate(10deg);
 }
-/* Nút toggle menu mobile */
-.mobile-menu-toggle {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: var(--gradient-primary);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 2001;
-  box-shadow: var(--shadow-md);
+
+/* Ẩn mobile tab trên desktop */
+@media (min-width: 769px) {
+  .mobile-menu-toggle,
+  #mobileMenu {
+    display: none !important;
+  }
+
+  /* ✅ Hiện bản desktop */
+  .nav-tabs-desktop {
+    display: flex !important;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px auto;
+  }
+
+  .nav-tabs-desktop .nav-tab {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
 }
 
-/* Container menu tabs mobile */
-#mobileMenu {
-  display: none;
-  position: fixed;
-  top: 70px;
-  left: 20px;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-primary);
-  border-radius: 12px;
-  z-index: 2000;
-  padding: 10px;
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-xl);
-}
-
-#mobileMenu.open {
-  display: block;
-}
-
-/* Responsive chỉ áp dụng trên mobile */
+/* Ẩn bản desktop trên mobile */
 @media (max-width: 768px) {
+  .nav-tabs-desktop {
+    display: none !important;
+  }
+
   .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    box-shadow: var(--shadow-md);
+  }
+
+  #mobileMenu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-primary);
+    border-radius: 12px;
+    z-index: 2000;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  #mobileMenu.open {
     display: block;
   }
 
   .nav-tabs {
-    display: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .nav-tab {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 10px 12px;
+    padding: 10px;
     font-size: 0.9rem;
-    background: transparent;
-    color: var(--text-primary);
     border-radius: 8px;
-    margin: 5px 0;
     border: 1px solid var(--border-secondary);
-  }
-
-  .nav-tab i {
-    margin-right: 10px;
+    background: transparent;
   }
 
   .nav-tab.active {
     background: var(--gradient-primary);
     color: white;
   }
-
-  .content {
-    padding-top: 40px !important;
-  }
 }
 
-
-/* Liquid Morphing Content */
-.content {
-  padding: 80px 40px;
-  min-height: 600px;
-  background: var(--bg-secondary);
-  position: relative;
-  overflow: hidden;
-}
-
-.content::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-      circle at 20% 20%,
-      rgba(59, 130, 246, 0.05) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(139, 92, 246, 0.05) 0%,
-      transparent 50%
-    );
-  animation: contentPulse 10s ease-in-out infinite alternate;
-}
-
-@keyframes contentPulse {
-  0% {
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0.7;
-  }
-}
-
-.tab-content {
-  display: none;
-  animation: liquidMorph 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 2;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-@keyframes liquidMorph {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(0.9);
-    filter: blur(10px);
-  }
-  50% {
-    transform: translateY(-10px) scale(1.02);
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
 
 /* Holographic Section Titles */
 .section-title {
