@@ -770,6 +770,36 @@ body {
     padding-top: 80px !important; /* để tránh bị tab che */
   }
 }
+@media (max-width: 768px) {
+  .nav-tabs {
+    position: static !important; /* Ngắt sticky */
+    flex-wrap: wrap;
+    justify-content: center;
+    background: transparent;
+    padding: 0 10px;
+    border-bottom: none;
+    z-index: auto;
+  }
+
+  .nav-tab {
+    flex: 1 1 45%;
+    padding: 12px 10px;
+    font-size: 0.9rem;
+    margin: 5px;
+    border: 1px solid var(--border-secondary);
+    border-radius: 10px;
+  }
+
+  .nav-tab.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: none;
+  }
+
+  .content {
+    padding-top: 40px !important; /* Bù trừ cho chiều cao tab nếu cần */
+  }
+}
 
 /* Liquid Morphing Content */
 .content {
