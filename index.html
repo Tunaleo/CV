@@ -109,8 +109,7 @@
           </div>
         </div>
       </div>
-      <!-- Phiên bản nav-tabs gốc cho máy tính -->
-<div class="nav-tabs">
+      <div class="nav-tabs">
         <button class="nav-tab active" onclick="showTab('about')">
           <i class="fas fa-user"></i> <span data-i18n="about">Giới thiệu</span>
         </button>
@@ -135,36 +134,6 @@
         </button>
       </div>
 
-
-      <!-- Nút mở menu trên mobile 
-<div class="mobile-menu-toggle" onclick="toggleMobileMenu()">📖 Mục lục</div>
-      <div class="mobile-menu" id="mobileMenu">
-  <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showTab('about')">
-      <i class="fas fa-user"></i> <span data-i18n="about">Giới thiệu</span>
-    </button>
-    <button class="nav-tab" onclick="showTab('experience')">
-      <i class="fas fa-briefcase"></i>
-      <span data-i18n="experience">Kinh nghiệm</span>
-    </button>
-    <button class="nav-tab" onclick="showTab('skills')">
-      <i class="fas fa-code"></i> <span data-i18n="skills">Kỹ năng</span>
-    </button>
-    <button class="nav-tab" onclick="showTab('education')">
-      <i class="fas fa-graduation-cap"></i>
-      <span data-i18n="education">Học vấn</span>
-    </button>
-    <button class="nav-tab" onclick="showTab('projects')">
-      <i class="fas fa-project-diagram"></i>
-      <span data-i18n="projects">Dự án</span>
-    </button>
-    <button class="nav-tab" onclick="showTab('contact')">
-      <i class="fas fa-envelope"></i>
-      <span data-i18n="contact">Liên hệ</span>
-    </button>
-  </div>
-</div>
--->
       <div class="content">
         <div class="tab-content active" id="about">
           <h2 class="section-title holographic" data-i18n="about_title">
@@ -620,7 +589,7 @@
             <h3 data-i18n="project_cv_title">Website CV cá nhân</h3>
             <div class="project-link">
               <i class="fab fa-github"></i>
-              https://tunaleo.github.io/CV/
+              github.com/nguyentuanuth/portfolio-cv
             </div>
             <p
               style="
@@ -671,30 +640,32 @@
             </div>
           </div>
 
-         <div class="project-item">
-  <h3 data-i18n="project_anti_ip_title">Tool Python: Chống IP ảo & Gmail giả mạo</h3>
-  <div class="project-link">
-    <i class="fab fa-github"></i>
-    github.com/nguyentuanuth/anti-fake-click-tool
-  </div>
-  <p
-    style="
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin: 20px 0;
-    "
-    data-i18n="project_anti_ip_desc"
-  >
-    Công cụ hỗ trợ kiểm soát quảng cáo Google Call Ads: tự động phát hiện IP click đáng ngờ và cảnh báo qua Gmail. Tích hợp Google Sheet để ghi log, hỗ trợ lọc truy cập từ IP trùng, email ảo và hành vi bất thường. Viết bằng Python, dễ tùy biến theo từng chiến dịch.
-  </p>
-  <div class="skill-tags">
-    <span class="skill-tag">Python</span>
-    <span class="skill-tag">Gmail API</span>
-    <span class="skill-tag">Google Sheets</span>
-    <span class="skill-tag" data-i18n="tag_security">An ninh quảng cáo</span>
-  </div>
-</div>
-
+          <div class="project-item">
+            <h3 data-i18n="project_game_title">Mini game: Đoán số may mắn</h3>
+            <div class="project-link">
+              <i class="fab fa-github"></i>
+              github.com/nguyentuanuth/guess-number-game
+            </div>
+            <p
+              style="
+                color: var(--text-secondary);
+                line-height: 1.7;
+                margin: 20px 0;
+              "
+              data-i18n="project_game_desc"
+            >
+              Một trò chơi nhỏ luyện kỹ năng JavaScript: người dùng nhập số để
+              đoán, hệ thống phản hồi lớn hơn / nhỏ hơn / đúng. Thiết kế đơn
+              giản, thân thiện, phục vụ học logic lập trình cơ bản.
+            </p>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag" data-i18n="tag_simple_ui"
+                >UI đơn giản</span
+              >
+            </div>
+          </div>
 
           <div class="project-item">
             <h3 data-i18n="project_book_title">
