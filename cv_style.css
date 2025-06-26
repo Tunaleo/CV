@@ -745,6 +745,31 @@ body {
 .nav-tab:hover i {
   transform: scale(1.2) rotate(10deg);
 }
+@media (max-width: 768px) {
+  .nav-tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 1000;
+    background: var(--bg-primary);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .nav-tab {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+  }
+
+  .content {
+    padding-top: 80px !important; /* để tránh bị tab che */
+  }
+}
 
 /* Liquid Morphing Content */
 .content {
