@@ -704,7 +704,4 @@ const translations = {
   },
 };
 // Toggle menu cho mobile
-function toggleMobileMenu() {
-  const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("open");
-}
+
