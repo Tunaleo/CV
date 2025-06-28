@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-
+<!-- 
+========================================
+CV WEBSITE HTML - ENHANCED VERSION
+========================================
+Author: Nguyễn Ngọc Tuấn
+Description: Personal CV website with modern design
+Features: Responsive design, multi-language support, interactive effects
+Last Updated: 2025
+========================================
+-->
 <html lang="vi">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>CV của Tứng</title>
+
+    <!-- External CSS Libraries -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
@@ -13,19 +24,34 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Orbitron:wght@400;500;600;700;800;900&amp;display=swap"
       rel="stylesheet"
     />
+
+    <!-- Custom Styles -->
     <link href="cv_style.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-      <div class="loader"></div>
+    <!-- Enhanced Loading Screen -->
+    <div class="loading-screen loading-screen-enhanced" id="loadingScreen">
+      <div class="loader loader-enhanced"></div>
     </div>
+
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Enhanced Background Effects -->
+    <div class="enhanced-bg"></div>
+    <div class="grid-bg"></div>
+    <div class="floating-orbs">
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+      <div class="orb"></div>
+    </div>
+
     <!-- Matrix Rain Background -->
     <div class="matrix-rain" id="matrixRain"></div>
+
     <!-- Geometric Background -->
     <div class="geometric-bg">
       <div class="geometric-shape"></div>
@@ -50,9 +76,9 @@
 
     <div class="container">
       <div class="particles" id="particles"></div>
-      <div class="header">
-        <div class="profile-section">
-          <div class="profile-img">
+      <div class="header enhanced-header">
+        <div class="profile-section enhanced-profile">
+          <div class="profile-img profile-img-enhanced">
             <img
               src="anh-2.jpg"
               alt="Ảnh đại diện Nguyễn Ngọc Tuấn"
@@ -109,74 +135,80 @@
           </div>
         </div>
       </div>
-      <div class="nav-tabs">
-        <button class="nav-tab active" onclick="showTab('about')">
+      <div class="nav-tabs nav-tabs-enhanced">
+        <button
+          class="nav-tab nav-tab-enhanced active"
+          onclick="showTab('about')"
+        >
           <i class="fas fa-user"></i> <span data-i18n="about">Giới thiệu</span>
         </button>
-        <button class="nav-tab" onclick="showTab('experience')">
+        <button
+          class="nav-tab nav-tab-enhanced"
+          onclick="showTab('experience')"
+        >
           <i class="fas fa-briefcase"></i>
           <span data-i18n="experience">Kinh nghiệm</span>
         </button>
-        <button class="nav-tab" onclick="showTab('skills')">
+        <button class="nav-tab nav-tab-enhanced" onclick="showTab('skills')">
           <i class="fas fa-code"></i> <span data-i18n="skills">Kỹ năng</span>
         </button>
-        <button class="nav-tab" onclick="showTab('education')">
+        <button class="nav-tab nav-tab-enhanced" onclick="showTab('education')">
           <i class="fas fa-graduation-cap"></i>
           <span data-i18n="education">Học vấn</span>
         </button>
-        <button class="nav-tab" onclick="showTab('projects')">
+        <button class="nav-tab nav-tab-enhanced" onclick="showTab('projects')">
           <i class="fas fa-project-diagram"></i>
           <span data-i18n="projects">Dự án</span>
         </button>
-        <button class="nav-tab" onclick="showTab('contact')">
+        <button class="nav-tab nav-tab-enhanced" onclick="showTab('contact')">
           <i class="fas fa-envelope"></i>
           <span data-i18n="contact">Liên hệ</span>
         </button>
       </div>
 
       <div class="content">
-        <div class="tab-content active" id="about">
+        <div class="tab-content active content-section-enhanced" id="about">
           <h2 class="section-title holographic" data-i18n="about_title">
             Thông tin cá nhân
           </h2>
 
-          <div class="info-grid">
-            <div class="info-item">
+          <div class="info-grid info-grid-enhanced">
+            <div class="info-item info-item-enhanced">
               <strong
                 ><i class="fas fa-user"></i>
                 <span data-i18n="label_fullname">Họ và tên</span></strong
               >
               <span data-i18n="value_fullname">Nguyễn Ngọc Tuấn</span>
             </div>
-            <div class="info-item">
+            <div class="info-item info-item-enhanced">
               <strong
                 ><i class="fas fa-briefcase"></i>
                 <span data-i18n="label_position">Vị trí mong muốn</span></strong
               >
               <span data-i18n="value_position">Lập trình Full-Stack</span>
             </div>
-            <div class="info-item">
+            <div class="info-item info-item-enhanced">
               <strong
                 ><i class="fas fa-phone"></i>
                 <span data-i18n="label_phone">Điện thoại</span></strong
               >
               <span data-i18n="value_phone">+84 915990195</span>
             </div>
-            <div class="info-item">
+            <div class="info-item info-item-enhanced">
               <strong
                 ><i class="fas fa-envelope"></i>
                 <span data-i18n="label_email">Email</span></strong
               >
               <span data-i18n="value_email">tuanlxl123@gmail.com</span>
             </div>
-            <div class="info-item">
+            <div class="info-item info-item-enhanced">
               <strong
                 ><i class="fas fa-map-marker-alt"></i>
                 <span data-i18n="label_address">Địa chỉ</span></strong
               >
               <span data-i18n="value_address">Hồ Chí Minh, Việt Nam</span>
             </div>
-            <div class="info-item">
+            <div class="info-item info-item-enhanced">
               <strong
                 ><i class="fas fa-calendar"></i>
                 <span data-i18n="label_age">Tuổi</span></strong
