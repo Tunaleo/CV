@@ -1,29 +1,53 @@
-// Initialize all effects
+/**
+ * ========================================
+ * CV WEBSITE JAVASCRIPT - ENHANCED VERSION
+ * ========================================
+ * Author: Nguyễn Ngọc Tuấn
+ * Description: Interactive effects and animations for CV website
+ * Features: Matrix rain, custom cursor, typing effects, smooth animations
+ * Dependencies: Font Awesome icons, Google Fonts
+ * ========================================
+ */
+
+/**
+ * MAIN INITIALIZATION
+ * Khởi tạo tất cả các hiệu ứng khi trang web được tải
+ */
 document.addEventListener("DOMContentLoaded", function () {
-  initializeLoadingScreen();
-  initializeCustomCursor();
-  initializeMatrixRain();
-  initializeParticles();
-  initializeTypingEffect();
-  initializeScrollAnimations();
-  initializeMouseTracker();
-  initializeKeyboardNavigation();
-  initializeSkillProgressAnimations();
+  // Khởi tạo các hiệu ứng theo thứ tự ưu tiên
+  initializeLoadingScreen(); // Màn hình loading
+  initializeCustomCursor(); // Con trỏ tùy chỉnh
+  initializeMatrixRain(); // Hiệu ứng mưa matrix
+  initializeParticles(); // Hạt bay
+  initializeTypingEffect(); // Hiệu ứng gõ chữ
+  initializeScrollAnimations(); // Animation khi scroll
+  initializeMouseTracker(); // Theo dõi chuột
+  initializeKeyboardNavigation(); // Điều hướng bằng phím
+  initializeSkillProgressAnimations(); // Animation thanh kỹ năng
 });
 
-// Loading Screen
+/**
+ * LOADING SCREEN FUNCTIONALITY
+ * Quản lý màn hình loading ban đầu
+ */
 function initializeLoadingScreen() {
+  // Ẩn loading screen sau 2 giây
   setTimeout(() => {
     document.getElementById("loadingScreen").classList.add("hidden");
   }, 2000);
 }
 
-// Custom Cursor
+/**
+ * CUSTOM CURSOR EFFECTS
+ * Tạo hiệu ứng con trỏ tùy chỉnh (chỉ trên desktop)
+ */
 function initializeCustomCursor() {
   const cursor = document.getElementById("cursor");
   const cursorFollower = document.getElementById("cursorFollower");
 
+  // Chỉ áp dụng trên màn hình lớn (desktop)
   if (window.innerWidth > 768) {
+    // Theo dõi chuyển động chuột
     document.addEventListener("mousemove", (e) => {
       cursor.style.left = e.clientX + "px";
       cursor.style.top = e.clientY + "px";
@@ -705,3 +729,519 @@ const translations = {
 };
 // Toggle menu cho mobile
 
+/**
+ * ========================================
+ * ENHANCED ANIMATION CONTROLLERS
+ * ========================================
+ * Các function điều khiển animation CSS3
+ */
+
+/**
+ * INTERSECTION OBSERVER FOR ANIMATIONS
+ * Kích hoạt animation khi element xuất hiện trên màn hình
+ */
+function initializeIntersectionAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+
+        // Thêm class animation dựa trên data attribute
+        const animationType = element.dataset.animation;
+        if (animationType) {
+          element.classList.add(animationType);
+        }
+
+        // Trigger stagger animation cho children
+        if (element.classList.contains("stagger-container")) {
+          element.classList.add("stagger-animation");
+        }
+
+        // Trigger elastic bounce cho buttons
+        if (element.classList.contains("bounce-trigger")) {
+          element.classList.add("elastic-bounce");
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe tất cả elements có data-animation
+  document.querySelectorAll("[data-animation]").forEach((el) => {
+    observer.observe(el);
+  });
+
+  // Observe stagger containers
+  document.querySelectorAll(".stagger-container").forEach((el) => {
+    observer.observe(el);
+  });
+}
+
+/**
+ * MAGNETIC HOVER EFFECT
+ * Tạo hiệu ứng từ tính khi hover
+ */
+function initializeMagneticHover() {
+  document.querySelectorAll(".magnetic-hover").forEach((element) => {
+    element.addEventListener("mousemove", (e) => {
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      // Giới hạn khoảng cách di chuyển
+      const maxDistance = 20;
+      const distance = Math.sqrt(x * x + y * y);
+      const factor = Math.min(distance / 100, 1);
+
+      const moveX = (x / distance) * maxDistance * factor;
+      const moveY = (y / distance) * maxDistance * factor;
+
+      element.style.setProperty("--mouse-x", `${moveX}px`);
+      element.style.setProperty("--mouse-y", `${moveY}px`);
+    });
+
+    element.addEventListener("mouseleave", () => {
+      element.style.setProperty("--mouse-x", "0px");
+      element.style.setProperty("--mouse-y", "0px");
+    });
+  });
+}
+
+/**
+ * RIPPLE EFFECT ON CLICK
+ * Tạo hiệu ứng ripple khi click
+ */
+function initializeRippleEffect() {
+  document.querySelectorAll(".ripple-effect").forEach((element) => {
+    element.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+      ripple.classList.add("ripple");
+
+      this.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+}
+
+/**
+ * PARALLAX SCROLL EFFECT
+ * Hiệu ứng parallax khi scroll
+ */
+function initializeParallaxScroll() {
+  const parallaxElements = document.querySelectorAll(".parallax-element");
+
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+
+    parallaxElements.forEach((element, index) => {
+      const rate = scrolled * -0.5 * (index + 1) * 0.1;
+      element.style.transform = `translateY(${rate}px)`;
+    });
+  }
+
+  // Throttle scroll event
+  let ticking = false;
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+      setTimeout(() => {
+        ticking = false;
+      }, 16);
+    }
+  }
+
+  window.addEventListener("scroll", requestTick);
+}
+
+/**
+ * TYPEWRITER EFFECT ENHANCED
+ * Hiệu ứng gõ chữ nâng cao
+ */
+function initializeTypewriterEffect() {
+  const typewriterElements = document.querySelectorAll(".typewriter-text");
+
+  typewriterElements.forEach((element, index) => {
+    const text = element.textContent;
+    element.textContent = "";
+
+    setTimeout(() => {
+      let i = 0;
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(timer);
+          // Remove cursor after typing
+          setTimeout(() => {
+            element.style.borderRight = "none";
+          }, 1000);
+        }
+      }, 100);
+    }, index * 1000);
+  });
+}
+
+/**
+ * SMOOTH SCROLL TO SECTIONS
+ * Cuộn mượt đến các section
+ */
+function initializeSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+}
+
+/**
+ * ENHANCED TAB SWITCHING WITH ANIMATIONS
+ * Chuyển tab với animation nâng cao
+ */
+function showTabEnhanced(tabName) {
+  const tabContents = document.querySelectorAll(".tab-content");
+  const navTabs = document.querySelectorAll(".nav-tab-enhanced");
+
+  // Fade out current tab với animation
+  const currentTab = document.querySelector(".tab-content.active");
+  if (currentTab) {
+    currentTab.style.opacity = "0";
+    currentTab.style.transform = "translateY(30px) scale(0.95)";
+    currentTab.style.filter = "blur(5px)";
+
+    setTimeout(() => {
+      currentTab.classList.remove("active");
+
+      // Show new tab với animation
+      const newTab = document.getElementById(tabName);
+      newTab.classList.add("active");
+
+      // Reset styles
+      newTab.style.opacity = "0";
+      newTab.style.transform = "translateY(30px) scale(0.95)";
+      newTab.style.filter = "blur(5px)";
+
+      setTimeout(() => {
+        newTab.style.opacity = "1";
+        newTab.style.transform = "translateY(0) scale(1)";
+        newTab.style.filter = "blur(0)";
+
+        // Trigger animations for new content
+        triggerContentAnimations(newTab);
+      }, 50);
+    }, 300);
+  }
+
+  // Update nav tabs
+  navTabs.forEach((tab) => {
+    tab.classList.remove("active");
+    tab.classList.add("elastic-bounce");
+    setTimeout(() => tab.classList.remove("elastic-bounce"), 800);
+  });
+
+  // Find and activate clicked tab
+  const clickedTab = Array.from(navTabs).find((tab) =>
+    tab.getAttribute("onclick").includes(tabName)
+  );
+  if (clickedTab) {
+    clickedTab.classList.add("active");
+  }
+}
+
+/**
+ * TRIGGER CONTENT ANIMATIONS
+ * Kích hoạt animation cho nội dung mới
+ */
+function triggerContentAnimations(container) {
+  // Trigger stagger animations
+  const staggerElements = container.querySelectorAll(
+    ".info-item-enhanced, .experience-item, .skill-category"
+  );
+  staggerElements.forEach((element, index) => {
+    element.style.opacity = "0";
+    element.style.transform = "translateY(30px)";
+
+    setTimeout(() => {
+      element.style.transition = "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+      element.style.opacity = "1";
+      element.style.transform = "translateY(0)";
+    }, index * 100);
+  });
+
+  // Trigger skill progress animations
+  if (container.id === "skills") {
+    setTimeout(() => {
+      triggerSkillAnimationsEnhanced();
+    }, 500);
+  }
+}
+
+/**
+ * ENHANCED SKILL PROGRESS ANIMATIONS
+ * Animation thanh kỹ năng nâng cao
+ */
+function triggerSkillAnimationsEnhanced() {
+  const progressBars = document.querySelectorAll(
+    ".skill-progress-fill-enhanced"
+  );
+  progressBars.forEach((bar, index) => {
+    const targetWidth = bar.style.width;
+    bar.style.width = "0%";
+
+    setTimeout(() => {
+      bar.style.transition = "width 2s cubic-bezier(0.4, 0, 0.2, 1)";
+      bar.style.width = targetWidth;
+
+      // Add shine effect
+      bar.classList.add("skill-shine-effect");
+    }, index * 200);
+  });
+}
+
+/**
+ * INITIALIZE ALL ENHANCED ANIMATIONS
+ * Khởi tạo tất cả animation nâng cao
+ */
+function initializeEnhancedAnimations() {
+  initializeIntersectionAnimations();
+  initializeMagneticHover();
+  initializeRippleEffect();
+  initializeParallaxScroll();
+  initializeTypewriterEffect();
+  initializeSmoothScroll();
+}
+
+// Gọi function khi DOM loaded
+document.addEventListener("DOMContentLoaded", () => {
+  initializeEnhancedAnimations();
+});
+
+// Override showTab function với enhanced version
+window.showTab = showTabEnhanced;
+
+/**
+ * ========================================
+ * IMAGE HANDLING ENHANCEMENTS
+ * ========================================
+ * Xử lý ảnh và gallery nâng cao
+ */
+
+/**
+ * LAZY LOADING FOR IMAGES
+ * Tải ảnh lazy loading để tối ưu performance
+ */
+function initializeLazyLoading() {
+  const images = document.querySelectorAll("img[data-src]");
+
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.classList.remove("image-loading");
+        img.classList.add("image-fade-in");
+
+        img.onload = () => {
+          img.classList.add("loaded");
+        };
+
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  images.forEach((img) => {
+    img.classList.add("image-loading");
+    imageObserver.observe(img);
+  });
+}
+
+/**
+ * IMAGE LIGHTBOX FUNCTIONALITY
+ * Hiệu ứng lightbox cho ảnh
+ */
+function initializeImageLightbox() {
+  // Tạo lightbox container
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.innerHTML = `
+    <span class="lightbox-close">&times;</span>
+    <img src="" alt="Lightbox Image">
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector("img");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+
+  // Thêm click event cho tất cả ảnh có class lightbox-trigger
+  document.querySelectorAll(".lightbox-trigger").forEach((img) => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  // Đóng lightbox
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Đóng bằng phím ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("active")) {
+      closeLightbox();
+    }
+  });
+}
+
+/**
+ * PROFILE IMAGE ENHANCEMENTS
+ * Cải thiện hiệu ứng ảnh profile
+ */
+function initializeProfileImageEffects() {
+  const profileImg = document.querySelector(".profile-img-enhanced");
+
+  if (profileImg) {
+    // Thêm badge status
+    const badge = document.createElement("div");
+    badge.className = "profile-badge";
+    badge.innerHTML = '<i class="fas fa-check"></i>';
+    badge.title = "Đã xác thực";
+    profileImg.appendChild(badge);
+
+    // Thêm hiệu ứng hover nâng cao
+    profileImg.addEventListener("mouseenter", () => {
+      profileImg.style.transform = "scale(1.05) rotateY(10deg)";
+    });
+
+    profileImg.addEventListener("mouseleave", () => {
+      profileImg.style.transform = "scale(1) rotateY(0deg)";
+    });
+  }
+}
+
+/**
+ * IMAGE GALLERY FUNCTIONALITY
+ * Chức năng gallery ảnh
+ */
+function initializeImageGallery() {
+  const galleryItems = document.querySelectorAll(".gallery-item");
+
+  galleryItems.forEach((item, index) => {
+    // Thêm animation delay
+    item.style.animationDelay = `${index * 0.1}s`;
+
+    // Thêm hover effect
+    item.addEventListener("mouseenter", () => {
+      item.style.transform = "translateY(-10px) scale(1.05)";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      item.style.transform = "translateY(0) scale(1)";
+    });
+  });
+}
+
+/**
+ * IMAGE OPTIMIZATION
+ * Tối ưu hóa ảnh
+ */
+function optimizeImages() {
+  const images = document.querySelectorAll("img");
+
+  images.forEach((img) => {
+    // Thêm loading="lazy" cho ảnh chưa có
+    if (!img.hasAttribute("loading")) {
+      img.setAttribute("loading", "lazy");
+    }
+
+    // Thêm error handling
+    img.addEventListener("error", () => {
+      img.src =
+        "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4=";
+      img.alt = "Image not found";
+    });
+  });
+}
+
+/**
+ * RESPONSIVE IMAGE HANDLING
+ * Xử lý ảnh responsive
+ */
+function handleResponsiveImages() {
+  const images = document.querySelectorAll("img[data-sizes]");
+
+  function updateImageSizes() {
+    const screenWidth = window.innerWidth;
+
+    images.forEach((img) => {
+      const sizes = JSON.parse(img.dataset.sizes);
+      let selectedSrc = img.src;
+
+      if (screenWidth <= 480 && sizes.small) {
+        selectedSrc = sizes.small;
+      } else if (screenWidth <= 768 && sizes.medium) {
+        selectedSrc = sizes.medium;
+      } else if (sizes.large) {
+        selectedSrc = sizes.large;
+      }
+
+      if (img.src !== selectedSrc) {
+        img.src = selectedSrc;
+      }
+    });
+  }
+
+  window.addEventListener("resize", updateImageSizes);
+  updateImageSizes();
+}
+
+/**
+ * INITIALIZE ALL IMAGE ENHANCEMENTS
+ * Khởi tạo tất cả cải tiến ảnh
+ */
+function initializeImageEnhancements() {
+  initializeLazyLoading();
+  initializeImageLightbox();
+  initializeProfileImageEffects();
+  initializeImageGallery();
+  optimizeImages();
+  handleResponsiveImages();
+}
+
+// Thêm vào main initialization
+document.addEventListener("DOMContentLoaded", () => {
+  initializeImageEnhancements();
+});
